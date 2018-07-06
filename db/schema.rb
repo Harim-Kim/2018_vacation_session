@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180703072305) do
+ActiveRecord::Schema.define(version: 20180706023502) do
+
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
+    t.text     "intro"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "books_users", id: false, force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
+  end
+
+  add_index "books_users", ["book_id", "user_id"], name: "index_books_users_on_book_id_and_user_id"
+
+  create_table "postlikes", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

@@ -6,8 +6,21 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @reply = Reply.new
+    @my_posts = current_user.posts
   end
+  # def likepost
+  #   like = Postlike.find_by(user_id: current_user.id, post_id: params[:post_id])
+  #   if like.nil?
+  #       Postlike.create(user_id: current_user.id,
+  #                   tattooshop_id: params[:id])
+  #   else
+  #       like.destroy
+  #   end
+  #   redirect_to :back
+  # end
+  def unlikepost
 
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show

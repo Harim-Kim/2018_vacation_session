@@ -3,7 +3,8 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :content
-      t.belongs_to :user, foreign_key: true
+      t.integer :user_id
+      #t.belongs_to :user, foreign_key: true
       t.timestamps null: false
     end
   end

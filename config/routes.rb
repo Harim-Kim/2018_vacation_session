@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'mypage' => "home#index"
+#  get 'posts/likepost/:post_id'  => 'posts#likepost'
+#에러뜸 
+  get 'like/:post_id/likepost'  => 'like#likepost'
+  resources :books
   resources :replies
   devise_for :users
   resources :posts
